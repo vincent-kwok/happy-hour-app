@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Toolbar from "./components/Toolbar";
 import NoteContainer from "./components/NoteContainer";
+import Github from "./components/Github";
 import { transformNotes } from "./helpers";
 import "./App.css";
 
@@ -96,6 +97,7 @@ class App extends Component {
           onClickNote={this.handleClickNote}
           onNoteEditorChange={this.handleNoteEditorChange}
         />
+        <Github />
       </div>
     );
   }
