@@ -1,6 +1,6 @@
 class BarsController < ApplicationController
   def index
-    zip = 60614
+    zip = 60608
     specials = "Y"
     # type = 
     # amenity = 
