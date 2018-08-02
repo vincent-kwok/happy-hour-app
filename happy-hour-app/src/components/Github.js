@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Input from "./Input";
+import Search from "./Search";
 import axios from "axios";
 
 class GitHub extends Component {
@@ -18,12 +18,8 @@ class GitHub extends Component {
     this.getData();
   }
   getData() {
-    var params = {
-      zip: this.zip
-    };
     axios
-      // .get("/bars")
-      .post("/bars", params)
+      .get("/bars")
       .then(response => {
         const data = response.data.success.results;
         this.setState({ posts: data });
@@ -38,103 +34,73 @@ class GitHub extends Component {
     return (
       <div>
         <h1>Barzzz</h1>
-        <Input />
-        <section className="content-section" id="portfolio">
-          <div className="container">
-            <div className="content-section-heading text-center">
-              <h3 className="text-secondary mb-0">Portfolio</h3>
-              <h2 className="mb-5">Recent Projects</h2>
-            </div>
-            <div className="row no-gutters">
-              {myData.map(item => (
-                <div className="col-lg-6">
-                  <a className="portfolio-item" href="#">
-                    <span className="caption">
-                      <span className="caption-content">
-                        <h2>Stationary</h2>
-                        <p className="mb-0">{item.Name}</p>
-                      </span>
-                    </span>
-                    <img
-                      className="img-fluid"
-                      src="img/portfolio-1.jpg"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Search />
 
-        <a className="menu-toggle rounded" href="#">
-          <i className="fa fa-bars" />
+        <a class="menu-toggle rounded" href="#">
+          <i class="fa fa-bars" />
         </a>
         <nav id="sidebar-wrapper">
-          <ul className="sidebar-nav">
-            <li className="sidebar-brand">
-              <a className="js-scroll-trigger" href="#page-top">
+          <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+              <a class="js-scroll-trigger" href="#page-top">
                 Start Bootstrap
               </a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#page-top">
+            <li class="sidebar-nav-item">
+              <a class="js-scroll-trigger" href="#page-top">
                 Home
               </a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#about">
+            <li class="sidebar-nav-item">
+              <a class="js-scroll-trigger" href="#about">
                 About
               </a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#services">
+            <li class="sidebar-nav-item">
+              <a class="js-scroll-trigger" href="#services">
                 Services
               </a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#portfolio">
+            <li class="sidebar-nav-item">
+              <a class="js-scroll-trigger" href="#portfolio">
                 Portfolio
               </a>
             </li>
-            <li className="sidebar-nav-item">
-              <a className="js-scroll-trigger" href="#contact">
+            <li class="sidebar-nav-item">
+              <a class="js-scroll-trigger" href="#contact">
                 Contact
               </a>
             </li>
           </ul>
         </nav>
 
-        <header className="masthead d-flex">
-          <div className="container text-center my-auto">
-            <h1 className="mb-1">Stylish Portfolio</h1>
-            <h3 className="mb-5">
+        <header class="masthead d-flex">
+          <div class="container text-center my-auto">
+            <h1 class="mb-1">Stylish Portfolio</h1>
+            <h3 class="mb-5">
               <em>A Free Bootstrap Theme by Start Bootstrap</em>
             </h3>
-            <a
-              className="btn btn-primary btn-xl js-scroll-trigger"
-              href="#about"
-            >
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">
               Find Out More
             </a>
           </div>
-          <div className="overlay" />
+          <div class="overlay" />
         </header>
 
-        <section className="content-section bg-light" id="about">
-          <div className="container text-center">
-            <div className="row">
-              <div className="col-lg-10 mx-auto">
+        <section class="content-section bg-light" id="about">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-lg-10 mx-auto">
                 <h2>
                   Stylish Portfolio is the perfect theme for your next project!
                 </h2>
-                <p className="lead mb-5">
+                <p class="lead mb-5">
                   This theme features a flexible, UX friendly sidebar menu and
                   stock photos from our friends at
                   <a href="https://unsplash.com/">Unsplash</a>!
                 </p>
                 <a
-                  className="btn btn-dark btn-xl js-scroll-trigger"
+                  class="btn btn-dark btn-xl js-scroll-trigger"
                   href="#services"
                 >
                   What We Offer
@@ -145,72 +111,70 @@ class GitHub extends Component {
         </section>
 
         <section
-          className="content-section bg-primary text-white text-center"
+          class="content-section bg-primary text-white text-center"
           id="services"
         >
-          <div className="container">
-            <div className="content-section-heading">
-              <h3 className="text-secondary mb-0">Services</h3>
-              <h2 className="mb-5">What We Offer</h2>
+          <div class="container">
+            <div class="content-section-heading">
+              <h3 class="text-secondary mb-0">Services</h3>
+              <h2 class="mb-5">What We Offer </h2>
             </div>
-            <div className="row">
-              <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <span className="service-icon rounded-circle mx-auto mb-3">
-                  <i className="icon-screen-smartphone" />
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <span class="service-icon rounded-circle mx-auto mb-3">
+                  <i class="icon-screen-smartphone" />
                 </span>
                 <h4>
                   <strong>Responsive</strong>
                 </h4>
-                <p className="text-faded mb-0">
-                  Looks great on any screen size!
-                </p>
+                <p class="text-faded mb-0">Looks great on any screen size!</p>
               </div>
-              <div className="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                <span className="service-icon rounded-circle mx-auto mb-3">
-                  <i className="icon-pencil" />
+              <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                <span class="service-icon rounded-circle mx-auto mb-3">
+                  <i class="icon-pencil" />
                 </span>
                 <h4>
                   <strong>Redesigned</strong>
                 </h4>
-                <p className="text-faded mb-0">
+                <p class="text-faded mb-0">
                   Freshly redesigned for Bootstrap 4.
                 </p>
               </div>
-              <div className="col-lg-3 col-md-6 mb-5 mb-md-0">
-                <span className="service-icon rounded-circle mx-auto mb-3">
-                  <i className="icon-like" />
+              <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+                <span class="service-icon rounded-circle mx-auto mb-3">
+                  <i class="icon-like" />
                 </span>
                 <h4>
                   <strong>Favorited</strong>
                 </h4>
-                <p className="text-faded mb-0">
+                <p class="text-faded mb-0">
                   Millions of users
-                  <i className="fa fa-heart" />
+                  <i class="fa fa-heart" />
                   Start Bootstrap!
                 </p>
               </div>
-              <div className="col-lg-3 col-md-6">
-                <span className="service-icon rounded-circle mx-auto mb-3">
-                  <i className="icon-mustache" />
+              <div class="col-lg-3 col-md-6">
+                <span class="service-icon rounded-circle mx-auto mb-3">
+                  <i class="icon-mustache" />
                 </span>
                 <h4>
                   <strong>Question</strong>
                 </h4>
-                <p className="text-faded mb-0">I mustache you a question...</p>
+                <p class="text-faded mb-0">I mustache you a question...</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="callout">
-          <div className="container text-center">
-            <h2 className="mx-auto mb-5">
+        <section class="callout">
+          <div class="container text-center">
+            <h2 class="mx-auto mb-5">
               Welcome to
               <em>your</em>
               next website!
             </h2>
             <a
-              className="btn btn-primary btn-xl"
+              class="btn btn-primary btn-xl"
               href="https://startbootstrap.com/template-overviews/stylish-portfolio/"
             >
               Download Now!
@@ -218,21 +182,43 @@ class GitHub extends Component {
           </div>
         </section>
 
-        <section className="content-section bg-primary text-white">
-          <div className="container text-center">
-            <h2 className="mb-4">
-              The buttons below are impossible to resist...
-            </h2>
-            <a href="#" className="btn btn-xl btn-light mr-4">
+        <section class="content-section" id="portfolio">
+          <div class="container">
+            <div class="content-section-heading text-center">
+              <h3 class="text-secondary mb-0">Portfolio</h3>
+              <h2 class="mb-5">Recent Projects</h2>
+            </div>
+            <div class="row no-gutters">
+              {myData.map(item => (
+                <div class="col-lg-6">
+                  <a class="portfolio-item" href="#">
+                    <span class="caption">
+                      <span class="caption-content">
+                        <h2>Stationary</h2>
+                        <p class="mb-0">{item.Name}</p>
+                      </span>
+                    </span>
+                    <img class="img-fluid" src="img/portfolio-1.jpg" alt="" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section bg-primary text-white">
+          <div class="container text-center">
+            <h2 class="mb-4">The buttons below are impossible to resist...</h2>
+            <a href="#" class="btn btn-xl btn-light mr-4">
               Click Me!
             </a>
-            <a href="#" className="btn btn-xl btn-dark">
+            <a href="#" class="btn btn-xl btn-dark">
               Look at Me!
             </a>
           </div>
         </section>
 
-        <section id="contact" className="map">
+        <section id="contact" class="map">
           <iframe
             width="100%"
             height="100%"
@@ -248,32 +234,26 @@ class GitHub extends Component {
           </small>
         </section>
 
-        <footer className="footer text-center">
-          <div className="container">
-            <ul className="list-inline mb-5">
-              <li className="list-inline-item">
-                <a
-                  className="social-link rounded-circle text-white mr-3"
-                  href="#"
-                >
-                  <i className="icon-social-facebook" />
+        <footer class="footer text-center">
+          <div class="container">
+            <ul class="list-inline mb-5">
+              <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="#">
+                  <i class="icon-social-facebook" />
                 </a>
               </li>
-              <li className="list-inline-item">
-                <a
-                  className="social-link rounded-circle text-white mr-3"
-                  href="#"
-                >
-                  <i className="icon-social-twitter" />
+              <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white mr-3" href="#">
+                  <i class="icon-social-twitter" />
                 </a>
               </li>
-              <li className="list-inline-item">
-                <a className="social-link rounded-circle text-white" href="#">
-                  <i className="icon-social-github" />
+              <li class="list-inline-item">
+                <a class="social-link rounded-circle text-white" href="#">
+                  <i class="icon-social-github" />
                 </a>
               </li>
             </ul>
-            <p className="text-muted small mb-0">
+            <p class="text-muted small mb-0">
               Copyright &copy; Your Website 2017
             </p>
           </div>

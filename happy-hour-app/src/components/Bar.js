@@ -10,13 +10,8 @@ class Bar extends Component {
   }
 
   getData() {
-
-    var params = {
-      zip: this.zip;
-    };
-
     axios
-      .post("/bars", params)
+      .get("/bars")
       .then(results => {
         console.log(results.data.success.results)
         return results.json();
