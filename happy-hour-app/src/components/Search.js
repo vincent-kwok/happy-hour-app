@@ -4,6 +4,7 @@ import axios from "axios";
 import Suggestions from "./Suggestions";
 
 // container component
+<<<<<<< HEAD
 // const zip = 60608;
 // const specials = "Y";
 
@@ -30,6 +31,31 @@ class Search extends Component {
         this.setState({ posts: data });
       })
       .catch(error => console.log(error, "error"));
+=======
+const zip = 60608;
+const specials = "Y";
+
+const { API_KEY } = process.env;
+const API_URL =
+  "https://api.barzz.net/api/search?zip=#{zip}&specials=#{specials}&user_key=#{ENV['api_key']}";
+
+class Search extends Component {
+  state = {
+    error: false,
+    query: "",
+    results: []
+  };
+
+  getInfo = () => {
+    axios
+      .get(`${API_URL}?api_key=${API_KEY}`)
+      .then(({ data }) => {
+        this.setState({
+          results: data
+        });
+      })
+      .catch(() => this.setState({ error: true }));
+>>>>>>> 351fbd0c3ea32e4ec94c103b440c2720ff7ee1be
   };
 
   handleInputChange = () => {
@@ -64,4 +90,8 @@ class Search extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default Search;
+=======
+export default Search;
+>>>>>>> 351fbd0c3ea32e4ec94c103b440c2720ff7ee1be
