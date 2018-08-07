@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< Updated upstream
-import Toolbar from "./components/Toolbar";
-import NoteContainer from "./components/NoteContainer";
-import Github from "./components/Github";
-
-import { transformNotes } from "./helpers";
-=======
 import axios from 'axios';
->>>>>>> Stashed changes
 import "./App.css";
 
 class App extends Component {
