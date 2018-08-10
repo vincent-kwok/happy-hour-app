@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./App.css";
 
 class App extends Component {
@@ -14,11 +14,11 @@ class App extends Component {
   }
 
   searchZip() {
-    axios.get('https://api.barzz.net/api/search?', {
+    axios.get("https://api.barzz.net/api/search?", {
       params: { 
         zip: this.state.zip,
-        specials: 'Y',
-        user_key: '4ba8ad255b786d9a8e308195706be07c'
+        specials: "Y",
+        user_key: process.env.REACT_APP_API_KEY
       }})
       .then( (response) => {
         // console.log("response", response);
