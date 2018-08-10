@@ -1,10 +1,7 @@
 class BarsController < ApplicationController
   def index
-    zip = 60608
-    specials = "Y"
-    # type = 
-    # amenity = 
-    response = Unirest.get("https://api.barzz.net/api/search?zip=#{zip}&specials=#{specials}&user_key=#{ENV['api_key']}")
+
+    response = Unirest.get("https://api.barzz.net/api/search?zip=#{params[:zip]}&specials=#{params[:specials]}&user_key=#{params[:user_key]}")
     render json: response.body
   end
 
@@ -13,4 +10,3 @@ class BarsController < ApplicationController
     render json: response.body
   end
 end
-

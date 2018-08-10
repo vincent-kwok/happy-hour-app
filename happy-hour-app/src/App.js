@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   searchZip() {
-    axios.get("https://api.barzz.net/api/search?", {
+    axios.get("/bars", {
       params: { 
         zip: this.state.zip,
         specials: "Y",
