@@ -4,6 +4,34 @@ import axios from "axios";
 import Suggestions from "./Suggestions";
 
 // container component
+<<<<<<< HEAD
+// const zip = 60608;
+// const specials = "Y";
+
+class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.getInfo = this.getInfo.bind(this);
+    this.state = {
+      error: false,
+      query: "",
+      results: []
+    };
+  }
+
+  componentDidMount() {
+    this.getInfo();
+  }
+
+  getInfo = () => {
+    axios
+      .get("/bars")
+      .then(response => {
+        const data = response.data.success.results;
+        this.setState({ posts: data });
+      })
+      .catch(error => console.log(error, "error"));
+=======
 const zip = 60608;
 const specials = "Y";
 
@@ -27,6 +55,7 @@ class Search extends Component {
         });
       })
       .catch(() => this.setState({ error: true }));
+>>>>>>> 351fbd0c3ea32e4ec94c103b440c2720ff7ee1be
   };
 
   handleInputChange = () => {
@@ -61,4 +90,8 @@ class Search extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default Search;
+=======
+export default Search;
+>>>>>>> 351fbd0c3ea32e4ec94c103b440c2720ff7ee1be
