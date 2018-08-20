@@ -1,0 +1,48 @@
+.shear {
+  background:rgba(0,0,0,0.7);
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+.clear {
+  background-color: transparent;
+  background: transparent;
+}
+.input-style {
+  border: 2px solid white;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  height: 66px;
+  text-align: center;
+  font-weight: bold;
+  width: 135px;
+}
+::placeholder {
+  color: white;
+}
+.title {
+  color: #ecb807;
+}
+.subtitle {
+  color: white;
+  font-style: italic;
+}
+
+.beer {
+  color: #fff;
+  font-size: 1.5em;
+  background-color: transparent;
+}
+
+.top {
+  text-align: right;
+  vertical-align: text-top;
+  font-size: 1.5em;
+}
+
+.results {
+  background-color: rgb(0,0,0,.4);
+  background: rgb(0,0,0,.4);
+  color: white;
+  padding: 5px;
+}
