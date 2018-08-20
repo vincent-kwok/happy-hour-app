@@ -23,7 +23,7 @@ class App extends Component {
       .then( (response) => {
         // console.log("response", response);
         this.setState({
-          bars: response.data.success.results
+          bars: response.data.success.results,
         });
         // console.log("searchZip", this.state.searchZip);
       })
@@ -40,16 +40,18 @@ class App extends Component {
     const myData = this.state.bars;
     console.log(myData);
 
+
     return (
+
       <div id="app">
         <header className="masthead d-flex">
-          <div className="container text-center my-auto">
-            <h1 className="mb-1">Barzzz</h1>
-            <h3 className="mb-5">
-              <em>Find happy hours around you!</em>
+          <div className="container text-center my-auto shear">
+            <h1 className="mb-1 clear title">Barzzz</h1>
+            <h3 className="mb-5 clear subtitle">
+              Find happy hours around you
             </h3>
-            <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter zip" />
-            <button className="btn btn-primary btn-xl js-scroll-trigger" onClick={this.searchZip}>Search</button>
+            <input className="input-style" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter zip" />
+            <a href="#portfolio" className="btn btn-xl btn-dark" onClick={this.searchZip}><i class="fas fa-beer beer"></i></a>
           </div>
           <div className="overlay" />
         </header>
@@ -57,35 +59,32 @@ class App extends Component {
         <section className="content-section" id="portfolio">
           <div className="container">
             <div className="content-section-heading text-center">
+              <a href="#app" class="top"><i class="fas fa-chevron-up"></i></a>
               <h3 className="text-secondary mb-0">Barzzz</h3>
-              <h2 className="mb-5">Check out these happy hours!</h2>
+              <h2 className="mb-5"><em>Check out these happy hours</em></h2>
             </div>
-            <div className="row no-gutters">
-
-              {myData.map((item) => (
-                <div className="col-lg-6">
-                  <a className="portfolio-item">
-                    <span className="caption">
-                      <span className="caption-content">
-                        <p className="mb-0">{item.Name}</p>
-                        <p className="mb-0">{item.Address}</p>
-                        <p className="mb-0">{item.Bar_Url}</p>
-                        <p className="mb-0">Sunday: {item.Sunday_Specials}</p>
-                        <p className="mb-0">Monday: {item.Monday_Specials}</p>
-                        <p className="mb-0">Tuesday: {item.Tuesday_Specials}</p>
-                        <p className="mb-0">Wednesday: {item.Wednesday_Specials}</p>
-                        <p className="mb-0">Thursday: {item.Thursday_Specials}</p>
-                        <p className="mb-0">Friday: {item.Friday_Specials}</p>
-                        <p className="mb-0">Saturday: {item.Saturday_Specials}</p>
-                      </span>
-                    </span>
-                    <img className="img-fluid" src="img/portfolio-1.jpg" alt="" />
-                  </a>
-                </div>
-              ))}
+            
+          {myData.map(item => (
+            <div class="card">
+              <div class="card-header">{item.Name}</div>
+              <div class="card-body">
+                <h5 class="card-title">{item.Address}</h5>
+                <p class="card-text">Sunday: {item.Sunday_Specials}</p>
+                <p class="card-text">Monday: {item.Monday_Specials}</p>
+                <p class="card-text">Tuesday: {item.Tuesday_Specials}</p>
+                <p class="card-text">Wednesday: {item.Wednesday_Specials}</p>
+                <p class="card-text">Thursday: {item.Thursday_Specials}</p>
+                <p class="card-text">Friday: {item.Friday_Specials}</p>
+                <p class="card-text">Saturday: {item.Saturday_Specials}</p>
+                <a href={item.Bar_Url} class="btn btn-primary">
+                  Go somewhere
+                </a>
+              </div>
+            </div>
+          ))}
 
             </div>
-          </div>
+
         </section>
 
 {/*}
@@ -271,7 +270,7 @@ class App extends Component {
               </li>
             </ul>
             <p className="text-muted small mb-0">
-              Copyright &copy; Your Website 2017
+              Copyright &copy; Barzzz 2018
             </p>
           </div>
         </footer>
