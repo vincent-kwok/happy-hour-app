@@ -46,3 +46,7 @@
   color: white;
   padding: 5px;
 }
+
+#mapid {
+  height: 360px;
+}
