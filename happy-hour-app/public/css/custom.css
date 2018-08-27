@@ -1,5 +1,5 @@
 .shear {
-  background:rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   padding-bottom: 30px;
   border-radius: 5px;
 }
@@ -41,12 +41,12 @@
 }
 
 .results {
-  background-color: rgb(0,0,0,.4);
-  background: rgb(0,0,0,.4);
+  background-color: rgb(0, 0, 0, 0.4);
+  background: rgb(0, 0, 0, 0.4);
   color: white;
   padding: 5px;
 }
 
-#mapid {
-  height: 360px;
+.mapid {
+  height: 420px;
 }

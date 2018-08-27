@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Example from "./components/Example";
 import "./App.css";
 
 class App extends Component {
@@ -8,32 +9,38 @@ class App extends Component {
     this.state = {
       zip: props.zip,
       bars: []
-    }
+    };
     this.searchZip = this.searchZip.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   searchZip() {
-    axios.get("/bars", {
-      params: { 
-        zip: this.state.zip,
-        specials: "Y",
-        user_key: process.env.REACT_APP_API_KEY
-      }})
-      .then( (response) => {
+    axios
+      .get("/bars", {
+        params: {
+          zip: this.state.zip,
+          specials: "Y",
+          user_key: process.env.REACT_APP_API_KEY
+        }
+      })
+      .then(response => {
         // console.log("response", response);
         this.setState({
-          bars: response.data.success.results,
+          bars: response.data.success.results
         });
         // console.log("searchZip", this.state.searchZip);
       })
-      .catch( (error) => {
+      .catch(error => {
         console.log(error);
       });
   }
 
+  alertMe() {
+    alert("You're leaving the page");
+  }
+
   handleChange(e) {
-    this.setState({zip: e.target.value});
+    this.setState({ zip: e.target.value });
   }
 
   render() {
@@ -41,16 +48,25 @@ class App extends Component {
     console.log(myData);
 
     return (
-
       <div id="app">
         <header className="masthead d-flex">
           <div className="container text-center my-auto shear">
             <h1 className="mb-1 clear title">Barzzz</h1>
-            <h3 className="mb-5 clear subtitle">
-              Find happy hours around you
-            </h3>
-            <input className="input-style" type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter zip" />
-            <a href="#portfolio" className="btn btn-xl btn-dark" onClick={this.searchZip}><i class="fas fa-beer beer"></i></a>
+            <h3 className="mb-5 clear subtitle">Find happy hours around you</h3>
+            <input
+              className="input-style"
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+              placeholder="Enter zip"
+            />
+            <a
+              href="#portfolio"
+              className="btn btn-xl btn-dark"
+              onClick={this.searchZip}
+            >
+              <i class="fas fa-beer beer" />
+            </a>
           </div>
           <div className="overlay" />
         </header>
@@ -58,35 +74,41 @@ class App extends Component {
         <section className="content-section" id="portfolio">
           <div className="container">
             <div className="content-section-heading text-center">
-              <a href="#app" class="top"><i class="fas fa-chevron-up"></i></a>
+              <a href="#app" class="top">
+                <i class="fas fa-chevron-up" />
+              </a>
               <h3 className="text-secondary mb-0">Barzzz</h3>
-              <h2 className="mb-5"><em>Check out these happy hours</em></h2>
+              <h2 className="mb-5">
+                <em>Check out these happy hours</em>
+              </h2>
             </div>
-            
-          {myData.map(item => (
-            <div class="card">
-              <div class="card-header">{item.Name}</div>
-              <div class="card-body">
-                <h5 class="card-title">{item.Address}</h5>
-                <p class="card-text">Sunday: {item.Sunday_Specials}</p>
-                <p class="card-text">Monday: {item.Monday_Specials}</p>
-                <p class="card-text">Tuesday: {item.Tuesday_Specials}</p>
-                <p class="card-text">Wednesday: {item.Wednesday_Specials}</p>
-                <p class="card-text">Thursday: {item.Thursday_Specials}</p>
-                <p class="card-text">Friday: {item.Friday_Specials}</p>
-                <p class="card-text">Saturday: {item.Saturday_Specials}</p>
-                <a href={item.Bar_Url} class="btn btn-primary">
-                  Go somewhere
-                </a>
+
+            {myData.map(item => (
+              <div class="card">
+                <div class="card-header">{item.Name}</div>
+                <div class="card-body">
+                  <h5 class="card-title">{item.Address}</h5>
+                  <p class="card-text">Sunday: {item.Sunday_Specials}</p>
+                  <p class="card-text">Monday: {item.Monday_Specials}</p>
+                  <p class="card-text">Tuesday: {item.Tuesday_Specials}</p>
+                  <p class="card-text">Wednesday: {item.Wednesday_Specials}</p>
+                  <p class="card-text">Thursday: {item.Thursday_Specials}</p>
+                  <p class="card-text">Friday: {item.Friday_Specials}</p>
+                  <p class="card-text">Saturday: {item.Saturday_Specials}</p>
+                  <a
+                    onClick={this.alertMe}
+                    href={item.Bar_Url}
+                    class="btn btn-primary"
+                  >
+                    Go somewhere
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
-
-            </div>
-
+            ))}
+          </div>
         </section>
 
-{/*}
+        {/*}
         <a className="menu-toggle rounded">
           <i className="fa fa-bars" />
         </a>
@@ -233,29 +255,6 @@ class App extends Component {
         </section>
 */}
 
-        <section id="contact" className="map">
-
-
-
-{/*}
-
-          <iframe
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            scrolling="no"
-            marginHeight="0"
-            marginWidth="0"
-            src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"
-          />
-
-          <br />
-          <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A" />
-          </small>
-*/}
-        </section>
-
         <footer className="footer text-center">
           <div className="container">
             <ul className="list-inline mb-5">
@@ -275,6 +274,8 @@ class App extends Component {
                 </a>
               </li>
             </ul>
+            <div />
+            <Example />
             <p className="text-muted small mb-0">
               Copyright &copy; Barzzz 2018
             </p>
