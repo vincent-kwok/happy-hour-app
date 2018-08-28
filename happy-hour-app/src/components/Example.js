@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import L from "leaflet";
+import App from "../App";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 var myIcon = L.icon({
@@ -12,13 +13,30 @@ var myIcon = L.icon({
 
 class Example extends Component {
   state = {
-    lat: 41.87871,
-    lng: -87.6298,
-    zoom: 13
+    location: {
+      lat: 0,
+      lng: 0
+    },
+    haveUsersLocation: false,
+    zoom: 2
   };
 
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.setState({
+        location: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        },
+        haveUsersLocation: true,
+        zoom: 13
+      });
+      console.log(position);
+    });
+  }
+
   render() {
-    const position = [this.state.lat, this.state.lng];
+    const position = [this.state.location.lat, this.state.location.lng];
     return (
       <Map className="mapid" center={position} zoom={this.state.zoom}>
         <TileLayer
