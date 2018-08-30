@@ -275,9 +275,9 @@ class App extends Component {
               </li>
             </ul>
             <div />
-            <Example />
+            <Example bars={this.state.bars} />
             <p className="text-muted small mb-0">
-              Copyright &copy; Barzzz 2018
+              Data provided by &copy; Barzz.net
             </p>
           </div>
         </footer>

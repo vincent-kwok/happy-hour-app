@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import L from "leaflet";
-import App from "../App";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 var myIcon = L.icon({
@@ -37,6 +36,7 @@ class Example extends Component {
 
   render() {
     const position = [this.state.location.lat, this.state.location.lng];
+    const myData = this.props.bars;
     return (
       <Map className="mapid" center={position} zoom={this.state.zoom}>
         <TileLayer
@@ -45,11 +45,20 @@ class Example extends Component {
           id="mapbox.streets"
           accessToken="pk.eyJ1IjoidmluY2VudGt3b2siLCJhIjoiY2psMzJjcHF4MXd4MzN0cWh1MnVqa2ljaSJ9.nqlSSyja2KuT5H2riHXWAQ"
         />
-        <Marker position={position} icon={myIcon}>
-          <Popup>
-            You made a marker. <br /> Big fuckin woop.
-          </Popup>
-        </Marker>
+        {myData.map(item => (
+          <Marker
+            Marker
+            position={{
+              lat: item.Latitude,
+              lng: item.Longitude
+            }}
+            icon={myIcon}
+          >
+            <Popup>
+              <b>{item.Name}</b>
+            </Popup>
+          </Marker>
+        ))}
       </Map>
     );
   }
